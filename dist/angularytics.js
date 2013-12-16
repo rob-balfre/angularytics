@@ -49,11 +49,7 @@
                     });
                 };
                 $rootScope.$on(pageChangeEvent, function () {
-                    if (Object.keys($location.search()).length > 0) {
-                        service.trackPageView($location.path() + ', ' + JSON.stringify($location.search()));
-                    } else {
-                        service.trackPageView($location.path());
-                    }
+                    service.trackPageView(window.location.pathname + window.location.hash);
                 });
                 return service;
             }
